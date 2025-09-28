@@ -2,8 +2,6 @@ class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
      int col0 = 1;
-    // step 1: Traverse the matrix and
-    // mark 1st row & col accordingly:
     for (int i = 0; i < matrix.size(); i++) {
         for (int j = 0; j < matrix[0].size(); j++) {
             if (matrix[i][j] == 0) {
@@ -23,7 +21,6 @@ public:
     for (int i = 1; i < matrix.size(); i++) {
         for (int j = 1; j < matrix[0].size(); j++) {
             if (matrix[i][j] != 0) {
-                // check for col & row:
                 if (matrix[i][0] == 0 || matrix[0][j] == 0) {
                     matrix[i][j] = 0;
                 }
