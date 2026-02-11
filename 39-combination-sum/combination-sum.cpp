@@ -1,19 +1,19 @@
 class Solution {
 private:
  void backtrack(vector<int> candidates,int target,int sum,vector<vector<int>>& res,    vector<int>& curr,int i){
-    if(i==candidates.size()){
-
-      if(target==sum){
-        res.push_back(curr);}
+    if(sum>target){
+        return;
+    }
+     if(target==sum){
+        res.push_back(curr);
 
         return;
     }
+     if(i==candidates.size())return;
 
-    if(sum<=target){
         curr.push_back(candidates[i]);
         backtrack(candidates,target,sum+candidates[i],res,curr,i);
         curr.pop_back();
-    }
     backtrack(candidates,target,sum,res,curr,i+1);
     
 
