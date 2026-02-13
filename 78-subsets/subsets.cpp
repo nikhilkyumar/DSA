@@ -1,15 +1,13 @@
 class Solution {
 private:
 void backtrack(int i,vector<int>& nums,vector<int>& curr,vector<vector<int>>& ans){
-    if(i==nums.size()){
-      ans.push_back(curr);
-        return;
+    ans.push_back(curr);
+    for(int j=i;j<nums.size();j++){
+        curr.push_back(nums[j]);
+        backtrack(j+1,nums,curr,ans);
+        curr.pop_back();
     }
-    curr.push_back(nums[i]);
-    backtrack(i+1,nums,curr,ans);
-    curr.pop_back();
-    backtrack(i+1,nums,curr,ans);
-
+   
 
 }    
 public:
