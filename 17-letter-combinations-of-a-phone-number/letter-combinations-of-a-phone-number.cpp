@@ -1,7 +1,7 @@
 class Solution {
    private:
    void backtrack(int start,string digits,string curr,vector<string>& ans,string mapping[]){
-    if(digits.size()==start&&curr.size()!=0){
+    if(digits.size()==start){
         ans.push_back(curr);
         return;
     }
