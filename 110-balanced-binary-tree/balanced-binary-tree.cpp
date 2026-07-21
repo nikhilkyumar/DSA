@@ -12,21 +12,18 @@
 class Solution {
 public:
     bool isBalanced(TreeNode* root) {
-        if (root == nullptr)
-            return true;
-        int left=maxDepth(root->left);
-        int right=maxDepth(root->right);
-        if(abs(left-right)<=1&& isBalanced(root->left)&&isBalanced(root->right))return true;
-        return false;
+       return dfs(root)!=-1;
         
     }
-     int maxDepth(TreeNode* root) {
-        int ans=0;
-        if(root==nullptr)return ans;
-        int left=maxDepth(root->left);
-        int right=maxDepth(root->right);
-        ans=max(left,right)+1;
-        return ans;
+     int dfs(TreeNode* root) {
+        if(root==nullptr){
+            return 0;
+        }
+        int left=dfs(root->left);
+        int right=dfs(root->right);
+        if(right==-1||left==-1) return -1;
+        if(abs(right-left)>1) return -1;
+        return max(left,right)+1;
         
     }
 
